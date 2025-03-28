@@ -7,7 +7,6 @@
 
 import NavBar from './components/NavBar.vue';
 
-// Hello Test
 
 export default {
 
