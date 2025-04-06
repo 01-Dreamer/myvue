@@ -24,6 +24,3 @@ export default {
 
 
 <style scoped></style>
-
-
-github Test
