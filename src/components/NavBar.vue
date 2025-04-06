@@ -18,10 +18,10 @@
                 </ul>
                 <ul class="navbar-nav" v-if="$store.state.is_login">
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ name: 'mine' }">01_Dreamer</router-link>
+                        <router-link class="nav-link" :to="{ name: 'mine' }">{{ $store.state.userName }}</router-link>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="cursor: pointer">退出</a>
+                        <a class="nav-link" style="cursor: pointer" @click="logout">退出</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav" v-else>
@@ -41,9 +41,22 @@
 
 
 <script>
+import store from '@/store';
+import router from '@/router';
 
 export default {
     name: "NavBar",
+
+    setup() {
+        const logout = () => {
+            store.dispatch('logout');
+            router.push("/login");
+        }
+
+        return {
+            logout,
+        }
+    }
 
 }
 
